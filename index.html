@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<body>
+<script src="http://localhost/socket.io/socket.io.js"></script>
+<script src="chatConnector.js"></script>
+<script>
+  
+
+  var chat = new ChatConnector("http://localhost","vilan");
+  chat.handleRooms(function (rooms){
+  	console.log(rooms);
+  });
+
+  chat.handleMessages(function (message){
+  	console.log(message);
+  });
+
+
+</script>
+</body>
+</html>
