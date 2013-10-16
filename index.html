@@ -6,12 +6,24 @@
 <script>
   
 
-  var chat = new ChatConnector("http://localhost","vilan");
+  var chat = new ChatConnector("http://localhost");
+  chat.login("vilan");
   chat.handleRooms(function (rooms){
+  	console.log("all the rooms");
   	console.log(rooms);
   });
 
+  chat.handleUserRooms(function (rooms){
+    console.log("update rooms that user is in");
+    console.log(rooms)
+  });
+
+  chat.handleRoomUsers(function (roomUsers){
+    console.log("update users in room");
+  	console.log(roomUsers);
+  });
   chat.handleMessages(function (message){
+  	console.log("messages to rooms user is connected");
   	console.log(message);
   });
 
