@@ -8,17 +8,17 @@
 
   var chat = new ChatConnector("http://localhost");
   chat.login("vilan");
-  chat.handleRooms(function (rooms){
+  chat.handleAllRooms(function (rooms){
   	console.log("all the rooms");
   	console.log(rooms);
   });
 
-  chat.handleUserRooms(function (rooms){
+  chat.handleJoinedRooms(function (rooms){
     console.log("update rooms that user is in");
     console.log(rooms)
   });
 
-  chat.handleRoomUsers(function (roomUsers){
+  chat.handleUsersInRoom(function (roomUsers){
     console.log("update users in room");
   	console.log(roomUsers);
   });

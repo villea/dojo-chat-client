@@ -9,23 +9,23 @@
    });
   }
 
-  ChatConnector.prototype.handleRooms = function(fn){
-  	this.socket.on("updateRooms",fn);
+  ChatConnector.prototype.handleAllRooms = function(fn){
+  	this.socket.on("updateAllRooms",fn);
   };
 
-  ChatConnector.prototype.handleUserRooms = function(fn){
-    this.socket.on("updateUserRooms",fn);
+  ChatConnector.prototype.handleJoinedRooms = function(fn){
+    this.socket.on("updateJoinedRooms",fn);
   };
 
   ChatConnector.prototype.handleReceiveMessage = function(fn){
   	this.socket.on("receiveMessage",fn);
   };
 
-  ChatConnector.prototype.handleRoomUsers= function(fn){
+  ChatConnector.prototype.handleUsersInRoom = function(fn){
     this.socket.on("updateUsersInRoom",fn);
   };
 
-  ChatConnector.prototype.message = function (room,message){
+  ChatConnector.prototype.sendMessage = function (room,message){
   	this.socket.emit("sendMessage",{
        room : room,
        message : message
