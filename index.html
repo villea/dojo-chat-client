@@ -14,16 +14,16 @@
   });
 
   chat.handleJoinedRooms(function (rooms){
-    console.log("update rooms that user is in");
+    console.log("joined rooms");
     console.log(rooms)
   });
 
   chat.handleUsersInRoom(function (roomUsers){
-    console.log("update users in room");
+    console.log("users in room");
   	console.log(roomUsers);
   });
   chat.handleReceiveMessage(function (message){
-  	console.log("message to room user is connected");
+  	console.log("received message");
   	console.log(message);
   });
 
