@@ -17,8 +17,8 @@
     this.socket.on("updateUserRooms",fn);
   };
 
-  ChatConnector.prototype.handleMessages = function(fn){
-  	this.socket.on("updateMessages",fn);
+  ChatConnector.prototype.handleReceiveMessage = function(fn){
+  	this.socket.on("receiveMessage",fn);
   };
 
   ChatConnector.prototype.handleRoomUsers= function(fn){

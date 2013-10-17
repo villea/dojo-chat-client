@@ -22,8 +22,8 @@
     console.log("update users in room");
   	console.log(roomUsers);
   });
-  chat.handleMessages(function (message){
-  	console.log("messages to rooms user is connected");
+  chat.handleReceiveMessage(function (message){
+  	console.log("message to room user is connected");
   	console.log(message);
   });
 
