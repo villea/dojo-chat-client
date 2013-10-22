@@ -34,9 +34,16 @@
   	});
   };
 
-  ChatConnector.prototype.join = function (room){
-  	this.socket.emit("join",room,function (err){
+  ChatConnector.prototype.joinRoom = function (room){
+  	this.socket.emit("joinRoom",room,function (err){
       throw err;
     });
   };
+
+    ChatConnector.prototype.leaveRoom = function (room){
+    this.socket.emit("leaveRoom",room,function (err){
+      throw err;
+    });
+  };
+
 
