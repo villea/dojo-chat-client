@@ -1,0 +1,45 @@
+API
+====
+
+constructor ChatConnector(url)
+
+Connects client to the server.
+Returns chatConnector instance
+
+---
+
+chatConnector#login(name)
+
+set username and add listeners
+for chat events
+
+---
+
+chatConnector#handleAllRooms(callbackFn( [rooms] ))
+
+listener for chat rooms change
+
+---
+
+chatConnector#handleJoinedRooms(callbackFn( [rooms] ))
+
+listener for chat rooms changes where user is in (join,leave)
+
+---
+
+chatConnector#handleUsersInRoom(callbackFn( {room : [users]} ))
+
+listener for chat room users change (join,leave)
+
+---
+
+chatConnector#joinRoom(room)
+
+joins client to the room. updates handlers (handleAllRooms is new room,handleJoinedRooms)
+
+---
+
+chatConnector#leaveRoom(room)
+
+takes client away from the room. updates handlers (handleJoinedRooms)
+
