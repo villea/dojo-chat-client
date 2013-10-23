@@ -27,9 +27,22 @@ listener for chat rooms changes where user is in (join,leave)
 
 ---
 
-chatConnector#handleUsersInRoom(callbackFn( {room : [users]} ))
+chatConnector#handleUsersInRoom(callbackFn( {room : room, users : [users]} ))
 
 listener for chat room users change (join,leave)
+
+---
+
+chatConnector#handleReceiveMessage(callbackFn(message))
+
+listener for coming messages
+
+message = {
+        sender : <username>,
+    	timestamp : <millisec>,
+    	room : <room>,
+    	message : <message>
+ };
 
 ---
 
@@ -39,7 +52,24 @@ joins client to the room. updates handlers (handleAllRooms is new room,handleJoi
 
 ---
 
+chatConnector#sendMessage(room, message)
+
+send message to the room. invokes handleReceiveMessage for clients
+
+---
+
 chatConnector#leaveRoom(room)
 
 takes client away from the room. updates handlers (handleJoinedRooms)
 
+---
+
+chatConnector#getAllRooms()
+
+invokes handleAllRooms explicitly
+
+---
+
+chatConnector#getUsersInRoom (room)
+
+invokes handleUsersInRoom explicitly
