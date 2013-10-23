@@ -1,12 +1,12 @@
 <!doctype html>
 <html>
 <body>
-<script src="http://localhost/socket.io/socket.io.js"></script>
+<script src="http://192.168.102.66:8080/socket.io/socket.io.js"></script>
 <script src="chatConnector.js"></script>
 <script>
   
 
-  var chat = new ChatConnector("http://localhost");
+  var chat = new ChatConnector("http://192.168.102.66:8080");
   
   chat.handleAllRooms(function (rooms){
   	console.log("all the rooms");
