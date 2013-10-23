@@ -7,7 +7,7 @@
   
 
   var chat = new ChatConnector("http://localhost");
-  chat.login("vilan");
+  
   chat.handleAllRooms(function (rooms){
   	console.log("all the rooms");
   	console.log(rooms);
@@ -27,7 +27,8 @@
   	console.log(message);
   });
 
-
+  var username=prompt("Please enter your name:");
+  chat.login(username);
 </script>
 </body>
 </html>
