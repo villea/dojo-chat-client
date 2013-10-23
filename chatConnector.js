@@ -40,10 +40,24 @@
     });
   };
 
-    ChatConnector.prototype.leaveRoom = function (room){
+  ChatConnector.prototype.leaveRoom = function (room){
     this.socket.emit("leaveRoom",room,function (err){
       throw err;
     });
+  };
+
+  ChatConnector.prototype.getAllRooms = function (handler){
+    if (!handler){
+      throw "Handler function is required";
+    }
+    this.socket.emit("getAllRooms",handler);
+  };
+
+  ChatConnector.prototype.getUsersInRoom = function (room,handler){
+    if (!handler || !room){
+      throw "Room and handler function is required";
+    }
+    this.socket.emit("getUsersInRoom",room,handler);
   };
 
 
