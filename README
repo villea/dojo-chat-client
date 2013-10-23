@@ -15,8 +15,7 @@ Returns chatConnector instance
 
 chatConnector#login(name)
 
-set username and add listeners
-for chat events
+set username and activate handler functions
 
 ---
 
@@ -57,11 +56,15 @@ joins client to the room. updates handlers (handleAllRooms if new room,handleJoi
 
 if room doesn't exist then create new room
 
+if user is already in room throws "USER_ALREADY_IN_ROOM"
+
 ---
 
 chatConnector#sendMessage(room, message)
 
 send message to the room. invokes handleReceiveMessage for clients
+
+if user not in the room throws "USER_NOT_IN_ROOM"
 
 ---
 
