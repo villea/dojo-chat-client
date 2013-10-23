@@ -46,18 +46,15 @@
     });
   };
 
-  ChatConnector.prototype.getAllRooms = function (handler){
-    if (!handler){
-      throw "Handler function is required";
-    }
-    this.socket.emit("getAllRooms",handler);
+  ChatConnector.prototype.getAllRooms = function (){
+    this.socket.emit("getAllRooms");
   };
 
-  ChatConnector.prototype.getUsersInRoom = function (room,handler){
-    if (!handler || !room){
-      throw "Room and handler function is required";
+  ChatConnector.prototype.getUsersInRoom = function (room){
+    if (!room){
+      throw "Room is required";
     }
-    this.socket.emit("getUsersInRoom",room,handler);
+    this.socket.emit("getUsersInRoom",room);
   };
 
 
