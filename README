@@ -1,6 +1,11 @@
 API
 ====
 
+All handleXXXX functions are listeners for server side push
+actions. 
+
+---
+
 constructor ChatConnector(url)
 
 Connects client to the server.
@@ -17,7 +22,7 @@ for chat events
 
 chatConnector#handleAllRooms(callbackFn( [rooms] ))
 
-listener for chat rooms change
+called when new room is created
 
 ---
 
@@ -48,7 +53,9 @@ message = {
 
 chatConnector#joinRoom(room)
 
-joins client to the room. updates handlers (handleAllRooms is new room,handleJoinedRooms)
+joins client to the room. updates handlers (handleAllRooms if new room,handleJoinedRooms)
+
+if room doesn't exist then create new room
 
 ---
 
