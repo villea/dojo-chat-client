@@ -1,0 +1,85 @@
+API
+====
+
+All handleXXXX functions are listeners for server side push
+actions. 
+
+---
+
+constructor ChatConnector(url)
+
+Connects client to the server.
+Returns chatConnector instance
+
+---
+
+chatConnector#login(name)
+
+set username and activate handler functions
+
+---
+
+chatConnector#handleAllRooms(callbackFn( [rooms] ))
+
+called when new room is created
+
+---
+
+chatConnector#handleJoinedRooms(callbackFn( [rooms] ))
+
+listener for chat rooms changes where user is in (join,leave)
+
+---
+
+chatConnector#handleUsersInRoom(callbackFn( {room : room, users : [users]} ))
+
+listener for chat room users change (join,leave)
+
+---
+
+chatConnector#handleReceiveMessage(callbackFn(message))
+
+listener for coming messages
+
+message = {
+        sender : <username>,
+    	timestamp : <millisec>,
+    	room : <room>,
+    	message : <message>
+ };
+
+---
+
+chatConnector#joinRoom(room)
+
+joins client to the room. updates handlers (handleAllRooms if new room,handleJoinedRooms)
+
+if room doesn't exist then create new room
+
+if user is already in room throws "USER_ALREADY_IN_ROOM"
+
+---
+
+chatConnector#sendMessage(room, message)
+
+send message to the room. invokes handleReceiveMessage for clients
+
+if user not in the room throws "USER_NOT_IN_ROOM"
+
+---
+
+chatConnector#leaveRoom(room)
+
+takes client away from the room. updates handlers (handleJoinedRooms)
+
+---
+
+chatConnector#getAllRooms()
+
+invokes handleAllRooms explicitly
+
+---
+
+chatConnector#getUsersInRoom (room)
+
+invokes handleUsersInRoom explicitly
