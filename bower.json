@@ -1,0 +1,21 @@
+{
+  "name": "dojo-chat-client",
+  "version": "0.0.0",
+  "description": "Client for Solita Dojo chat server",
+  "main": "chatConnector.js",
+  "keywords": [
+    "solita"
+  ],
+  "authors": [
+    "villean"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
